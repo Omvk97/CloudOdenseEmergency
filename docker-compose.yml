@@ -1,0 +1,19 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  frontend:
+    build: ./Frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+  backend:
+    build: ./Backend
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: 3000
+      NODE_ENV: Development
+      MONGO_DB_CONNECTION_STRING: mongodb+srv://dbAdmin:PJN4bgCmIGkp3ZGL@evacuation.wllf5.mongodb.net/?retryWrites=true&w=majority
+      MONGO_DB_NAME: Evacuation
+      REDIS_URI: 10.88.167.149:6379
+      
